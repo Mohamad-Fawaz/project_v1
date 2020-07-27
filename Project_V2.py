@@ -1,0 +1,76 @@
+import csv
+def read_electric():
+    with open('electricfile.csv', newline='') as File:
+        reader = csv.reader(File)
+        for row in reader:
+            print(row)
+def write_electric():
+    with open('ctest2.csv', mode='w') as ctest2:
+        writer = csv.writer(ctest2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        rows_add_num = input('How many row you want to add ---> \t')
+        writer.writerow(['production','month','Year'])
+        writer.writerow([input('production -->\t'),input('month -->\t'),input('year -->\t')])
+def read_water():
+    with open('waterfile.csv', newline='') as File:
+        reader = csv.reader(File)
+        for row in reader:
+            print(row)
+def write_water():
+    with open('waterfile.csv', mode='w') as File:
+        writer = csv.writer(File, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        rows_add_num = input('How many row you want to add ---> \t')
+        writer.writerow(['production','month','Year'])
+        writer.writerow([input('production -->\t'),input('month -->\t'),input('year -->\t')])
+
+def choice():
+    print('1_ Add or show electricity production \n2_ Add or show water production \n3_ The expected production of electricity \n4_ The expected production of water \n ')
+    cho = input('Enter the selection number please --->\t')
+    check_cho = cho.isdigit()
+    if cho == '1' :
+        ele_cho = input('1_ Add data \n2_ Show data file\n')
+        if ele_cho == '1':
+            write_electric()
+        elif ele_cho == '2':
+            read_electric()
+        else :
+            print('Check your input please\n')
+    elif cho == '2' :
+        water_cho = input('1_ Add data \n2_ Show data file\n')
+        if water_cho == '1':
+            write_water()
+        elif water_cho == '2':
+            read_water()
+        else :
+            print('Check your input please\n')
+    elif cho == '3' :
+        print('calculate the expected production of electricity\n')
+    elif cho == '4' :
+        print('calculate the expected production of water\n')
+    elif check_cho == False :
+        print('please enter number\n')
+    else :
+        print('this number not found\n')
+def repeat_op():
+    while True :
+        try :
+            QUESTION = input('If you want another operation please enter : [Yes] \nIf you want to stop please enter [No]\n')
+            line()
+            if QUESTION == 'Yes':
+                choice()
+                line()
+            elif QUESTION == 'No':
+                print ('We are happy to serve you')
+                line()
+                break
+            else :
+                print ('Check your input please')
+                line()
+        except:
+            continue
+def line():
+    print('------------------------------------------------------')
+def main():
+    choice()
+    line()
+    repeat_op()
+main()
