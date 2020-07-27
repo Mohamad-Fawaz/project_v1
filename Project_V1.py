@@ -9,7 +9,7 @@ def electric_fun(name):
 def water_fun():
     water_ob = water()
 def choice():
-    print('1_ Show electricity production \n2_ Show water production \n3_\n ')
+    print('1_ Show electricity production \n2_ Show water production \n3_ The expected production of electricity \n4_ The expected production of water \n ')
     cho = input('Enter the selection number please >\n')
     check_cho = cho.isdigit()
     if cho == '1' :
@@ -17,7 +17,9 @@ def choice():
     elif cho == '2' :
         print('Exeal File data for Water production')
     elif cho == '3' :
-        print('later')
+        print('calculate the expected production of electricity')
+    elif cho == '4' :
+        print('calculate the expected production of water')
     elif check_cho == False :
         print('please enter number')
     else :
