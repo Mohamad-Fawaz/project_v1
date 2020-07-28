@@ -5,13 +5,13 @@ def read_electric():
         for row in reader:
             print(row)
 def write_electric():
-    with open('ctest2.csv', mode='w') as ctest2:
-        writer = csv.writer(ctest2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    with open('ctest2.csv', mode='w') as File:
+        writer = csv.writer(File, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         rows_add_num = int(input('How many row you want to add ---> \t'))
         writer.writerow(['production','month','Year'])
         for i in range(0,rows_add_num):
             writer.writerow([input('production -->\t'),input('month -->\t'),input('year -->\t')])
-def append_electric ():
+def append_electric():
         with open('ctest2.csv', mode='a') as File:
             writer = csv.writer(File, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             rows_add_num = int(input('How many row you want to add ---> \t'))
